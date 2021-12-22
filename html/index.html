@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <title>Pokloni bratu</title>
+    <link
+      rel="stylesheet"
+      href="../font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+
+    <div id="signup-modal" class="modal">
+      <form class="modal-content animate" method="post">
+        <div class="container1">
+          <i
+            class="material-icons"
+            id="signup-modal-close"
+            style="color: white; float: right; cursor: pointer"
+            >close</i
+          >
+          <input
+            type="text"
+            placeholder="Korisnicko ime"
+            id="signup-name"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Lozinka"
+            id="signup-psw"
+            required
+          />
+          <input type="text" placeholder="Ime" id="signup-fname" required />
+          <input type="text" placeholder="Prezime" id="signup-sname" required />
+          <input
+            type="text"
+            placeholder="Broj telefona"
+            id="signup-num"
+            required
+          />
+          <button id="signup-done-button" class="form-button">
+            Registruj se
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="login-modal" class="modal">
+      <form class="modal-content animate" method="post">
+        <div class="container1">
+          <i
+            class="material-icons"
+            id="login-modal-close"
+            style="color: white; float: right; cursor: pointer"
+            >close</i
+          >
+          <input
+            type="text"
+            placeholder="Korisnicko ime"
+            id="login-name"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Lozinka"
+            id="login-psw"
+            required
+          />
+          <button id="login-done-button" class="form-button">Uloguj se</button>
+          <div>
+            <span style="color: white">Nemas nalog?</span>
+            <span
+              style="cursor: pointer; color: turquoise"
+              id="register-button"
+            >
+              <u>Registruj se</u>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </head>
+
+  <body onload="refreshList();logrfr()">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark navFont">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">
+          <img class="logo" src="../images/logo.jpg" />
+          &nbsp; Pokloni bratu
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active justify-content-center">
+              <a class="nav-link" href="index.html">Početna</a>
+            </li>
+
+            <li class="nav-item justify-content-center">
+              <a class="nav-link" href="moji_oglasi.html">Moji oglasi</a>
+            </li>
+
+            <li class="nav-item justify-content-center">
+              <a class="nav-link" href="kreiraj_oglas.html">Postavi oglas</a>
+            </li>
+
+            <li class="nav-item justify-content-center">
+              <a class="nav-link" href="about.html">O nama</a>
+            </li>
+
+            <li>
+              <div class="login-info">
+                <div id="user-menu" style="display: none">
+                  <span class="user-icon"></span>
+                </div>
+                <div class="popup">
+                  <div class="popuptext" id="myPopup">
+                    <span class="logged-in-user"></span><br />
+                    <br />
+                    <span class="menu-options" id="edit-profile"
+                      >Izmeni podatke</span
+                    ><br />
+                    <button id="logout-button" class="log-button">
+                      Izloguj se
+                    </button>
+                  </div>
+                </div>
+                <button
+                  id="login-button"
+                  style="display: none"
+                  class="log-button"
+                >
+                  Uloguj se
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ostatak -->
+    <div class="container-fluid main">
+      <div class="container-fluid">
+        <div class="row">
+          <div
+            class="col-lg-12 center"
+            style="margin-bottom: 40px; color: black"
+          >
+            Svi oglasi
+          </div>
+        </div>
+
+        <!-- prvi red -->
+        <div class="row">
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas1_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Zenske farmerke iz Zare</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Novi
+                  Beograd, Beograd
+                </p>
+                <a href="oglas1.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas2_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Dvosed</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  Kaluđerica, Beograd
+                </p>
+                <a href="oglas2.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas3_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Plasticna saksija</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Niš
+                </p>
+                <a href="oglas3.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas4_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Zavesa 2m</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Zemun,
+                  Beograd
+                </p>
+                <a href="oglas4.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- drugi red -->
+        <div class="row">
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas5_1.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Jabuke domaće</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Paraćin
+                </p>
+                <a href="oglas5.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas6_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Daljinski</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Subotica
+                </p>
+                <a href="oglas6.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas7_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Stolica</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Požarevac
+                </p>
+                <a href="oglas7.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas8_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Nokia 3310</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Prokuplje
+                </p>
+                <a href="oglas8.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- treci red -->
+        <div class="row">
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas9_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Oprema za jahanje</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Zlatibor
+                </p>
+                <a href="oglas9.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas10_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Set plastičnih čaša</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Banja
+                  Koviljača
+                </p>
+                <a href="oglas10.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas11_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Ogrlica za pse</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Surčin,
+                  Beograd
+                </p>
+                <a href="oglas11.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas12_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kilo paprika</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Leskovac
+                </p>
+                <a href="oglas12.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="dodavanje">
+          <div class="lg-3 col-lg-3 sm-3 col-sm-6">
+            <div class="card" style="width: 20rem">
+              <img
+                src="../images/oglas13_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Tastatura</h5>
+                <p class="card-text">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Donji
+                  Milanovac
+                </p>
+                <a href="oglas13.html" class="btn"> Detalji</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- conteiner fluid -->
+    </div>
+    <!-- conteiner fluid main -->
+
+    <footer>
+
+      <div id="sub-footer">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="copyright d-flex p-2 justify-content-center  align-items-center">
+                          <p>
+                              <span>&copy; Copyright 2021, Latrodectus 
+                              </span>
+                          </p>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  </body>
+  <script src="../js/login.js"></script>
+  
+</html>

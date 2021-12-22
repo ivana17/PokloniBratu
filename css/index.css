@@ -1,0 +1,46 @@
+
+.center{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 2px 3px rgb(27, 180, 40);
+    
+}
+
+.card{
+    box-shadow: 3px 3px 5px rgba(41, 134, 69, 0.281);
+    transition: box-shadow 0.3s ease-in-out transform .2s;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    height: fit-content;
+}
+
+.card:hover {
+    box-shadow: 3px 5px 20px rgb(27, 180, 40);
+    transform: scale(1.1);
+}
+
+.card-img-top{
+    height: 300px;
+	width: 100%;
+}
+
+.btn:focus {
+box-shadow: none;
+}
+
+
+.btn{
+    color: black;
+    background-color: rgb(27, 180, 40);
+    border-color: rgb(27, 180, 40);
+    border-width: 2px;
+    margin: 20px;
+    font-size: 20px;
+}
+
+.btn:hover{
+    color: black;
+}

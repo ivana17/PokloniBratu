@@ -1,0 +1,100 @@
+
+header{
+	position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 999;
+
+  margin-bottom: 85px;
+}
+
+.logo{
+	height: 70px;
+	width: 70px;
+	padding: 0;
+    margin-bottom: 3px;
+}
+.navbar{
+	padding:0;
+	margin: 0;
+	align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand{
+	padding: 0;
+	border: 0;
+	font-weight: bold;
+	font-size: 1.4em;
+	padding-right: 10px;
+}
+
+.active{
+	background-color: rgb(27, 180, 40);
+}
+
+.navbar-nav li {
+	padding-right: 10px;
+	padding-left: 10px;
+	height: 55px;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+}
+
+.navbar-collapse{
+	padding: 0;
+	margin: 0;
+}
+
+.nav-link{
+	align-items: flex-end;
+	height: 55px;
+}
+
+.nav-item{
+	align-items: center;
+}
+
+.nav-item:hover{
+	
+	margin: 0px;
+	background-color: rgb(27, 180, 40);
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+
+
+
+
+
+#inner-headline{
+	background-color:rgb(27, 180, 40);
+	color: black;
+	text-align: left;
+}
+
+/* ----------------- */
+.main{
+    margin-top: 85px;
+}
+
+/*----*/
+
+footer {
+    /* position: fixed; */
+    bottom : 0px;
+    left: 0px;
+	/* margin-top: 50px;
+	z-index: 999; */
+   
+    width: 100%;
+    text-align: center;
+	background-color: rgb(27, 27, 27);
+	color: white;
+	/* flex: 1 1 auto; */
+}
+
+.copyright {
+	text-align:center;
+}
